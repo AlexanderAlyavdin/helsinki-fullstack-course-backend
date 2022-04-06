@@ -30,15 +30,17 @@ if (name !== undefined && number !== undefined) {
   });
 
   personToAdd.save().then((result) => {
-    console.log(`${name} saved!`);
+    console.log(`added ${name} number ${number} to phonebook!`);
     mongoose.connection.close();
   });
 }
 
 if (name === undefined && number === undefined) {
   Person.find({}).then((result) => {
-    result.forEach((note) => {
-      console.log(note);
+    console.log("phonebook:");
+
+    result.forEach(({ name, number }) => {
+      console.log(`${name} ${number}`);
     });
     mongoose.connection.close();
   });
