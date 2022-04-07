@@ -10,6 +10,16 @@ DELETE http://localhost:3001/api/persons/624ea3c6ad9beedf0c2df0c8
 
 ###
 
+PUT http://localhost:3001/api/persons/624df43d83b61c8f60e980de
+Content-Type: application/json
+
+{
+  "name": "Sorin",
+  "number": "Vaae"
+}
+
+###
+
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
