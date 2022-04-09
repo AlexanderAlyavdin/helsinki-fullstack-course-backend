@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 if (process.argv.length < 3) {
   console.log(
-    "Please provide arguments like this to add a person to the phonebook: node mongo.js <password> <name> <number>"
+    'Please provide arguments like this to add a person to the phonebook: node mongo.js <password> <name> <number>'
   );
   console.log(
-    "To retrieve all persons use it like this: node mongo.js <password>"
+    'To retrieve all persons use it like this: node mongo.js <password>'
   );
   process.exit(1);
 }
@@ -21,7 +21,7 @@ const personSchema = new mongoose.Schema({
   number: String,
 });
 
-const Person = mongoose.model("Person", personSchema);
+const Person = mongoose.model('Person', personSchema);
 
 if (name !== undefined && number !== undefined) {
   const personToAdd = new Person({
@@ -29,7 +29,7 @@ if (name !== undefined && number !== undefined) {
     number,
   });
 
-  personToAdd.save().then((result) => {
+  personToAdd.save().then(() => {
     console.log(`added ${name} number ${number} to phonebook!`);
     mongoose.connection.close();
   });
@@ -37,7 +37,7 @@ if (name !== undefined && number !== undefined) {
 
 if (name === undefined && number === undefined) {
   Person.find({}).then((result) => {
-    console.log("phonebook:");
+    console.log('phonebook:');
 
     result.forEach(({ name, number }) => {
       console.log(`${name} ${number}`);
